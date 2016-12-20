@@ -1,6 +1,6 @@
-var DrunkDancer = function(top, left, timeBetweenSteps) {
+var DrunkDancer = function(top, left, timeBetweenSteps, id) {
   // var blinkyDancer = Dancer(top, left, timeBetweenSteps);
-  Dancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps, id);
   this.$node.addClass('drunk');
   this.$node.removeClass('dancer');
   this.$node.prepend('<img src="img/rtx1gzco.jpg" />');

@@ -1,6 +1,6 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps) {
+var BlinkyDancer = function(top, left, timeBetweenSteps, id) {
   // var blinkyDancer = Dancer(top, left, timeBetweenSteps);
-  Dancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps, id);
 
 
 };

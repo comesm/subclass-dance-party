@@ -25,7 +25,8 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 1000, 
+      window.dancers.length + 1
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
@@ -40,6 +41,54 @@ $(document).ready(function() {
   $('body').on('mouseover', '.element', function(event) {
     // debugger;
     $(this).css({border: '5px solid orange'});
+  });
+
+  $('body').on('click', '.element', function(event) {
+    // debugger;
+    var currDancer = $(this);
+    var currId = currDancer.attr('id');
+    var dancers = window.dancers;
+    var currDancerObj = dancers[currId - 1];
+    console.log(currId);
+    console.log(currDancerObj);
+    console.log(dancers);
+    console.log(window.dancers);
+
+    var closestDancerObj = dancers.reduce(function(acc, curr) {
+      if (currDancerObj.id === curr.id) {
+        return acc;
+      }
+      if (currDancerObj.id === acc.id) {
+        return curr;
+      }
+      return currDancerObj.getDistance(acc) < 
+           currDancerObj.getDistance(curr) ? acc : curr;
+    }); 
+    
+    var closestDancer = $('body').find('#' + closestDancerObj.id);
+    console.log(closestDancer);
+    currDancer.animate({top: '+=100px', 
+        left: '+=100px'}, 'fast');
+    closestDancer.animate({top: '-=100px',   
+        left: '-=100px'}, 'fast');
+
+    // currDancer.animate({top: closestDancerObj.top + 'px', 
+    //     left: closestDancerObj.left + 'px'}, 'fast');
+    // closestDancer.animate({top: currDancerObj.top + 'px',   
+    //     left: currDancerObj.left + 'px'}, 'fast');
+
+    // var closestCopy = JSON.parse(JSON.stringify(closestDancer));
+
+    // closestDancer.top = currDancer.top;
+    // closestDancer.left = currDancer.left;
+    // currDancer.top = closestCopy.top;
+    // currDancer.left = closestCopy.top;
+
+    
+    // $(currDancerObj).animate({top: closestDancerObj.top + 'px', 
+    //     left: closestDancerObj.left + 'px'}, 'fast');
+
+    // var index = window.dancers.indexOf();
   });
 
 

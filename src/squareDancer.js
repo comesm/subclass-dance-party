@@ -1,6 +1,6 @@
-var SquareDancer = function(top, left, timeBetweenSteps) {
+var SquareDancer = function(top, left, timeBetweenSteps, id) {
   // var SquareDancer = Dancer(top, left, timeBetweenSteps);
-  Dancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps, id);
   this.$node.removeClass('dancer');
   this.$node.addClass('square');
 
