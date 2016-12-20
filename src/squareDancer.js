@@ -22,3 +22,7 @@ SquareDancer.prototype.step = function() {
   
 
 };
+
+SquareDancer.prototype.lineUp = function(top, left) {
+  this.setPosition(this.top, 600);
+};
