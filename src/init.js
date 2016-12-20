@@ -36,6 +36,11 @@ $(document).ready(function() {
     });
   });
 
+  $('body').on('mouseover', '.element', function(event) {
+    // debugger;
+    $(this).css({border: '5px solid orange'});
+  });
+
 
 });
 
