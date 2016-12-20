@@ -20,10 +20,10 @@ TrashyDancer.prototype.oldStep = Dancer.prototype.step;
 TrashyDancer.prototype.step = function() {
   
   this.oldStep();  
-  
-  this.$node.animate({top: '300px'}, 'fast');
-  this.$node.animate({left: '300px'}, 'fast');
-  this.$node.animate({top: '0px'}, 'fast');
-  this.$node.animate({left: '0px'}, 'fast');
+  // debugger;
+  this.$node.animate({top: this.top + 300 + 'px'}, 'fast');
+  this.$node.animate({left: this.left + 300 + 'px'}, 'fast');
+  this.$node.animate({top: this.top + 'px'}, 'fast');
+  this.$node.animate({left: this.left + 'px'}, 'fast');
 
 };

@@ -35,7 +35,7 @@ body, a:link, a:visited, a:active{
   background-color: green;
 }
 
-.drunk, .trashy {
+.drunk, .trashy, .mobile {
 
   position:absolute; 
 
@@ -47,6 +47,11 @@ body, a:link, a:visited, a:active{
 }
 
 .trashy > img {
+  height: 150px;
+  width: 150px;
+}
+
+.mobile > img {
   height: 150px;
   width: 150px;
 }
