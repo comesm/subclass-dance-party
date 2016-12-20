@@ -25,3 +25,28 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.square{
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  position:absolute;
+}
+.square-toggle{
+  background-color: green;
+}
+
+.drunk, .trashy {
+
+  position:absolute; 
+
+}
+
+.drunk > img {
+  height: 100px;
+  width:200px;
+}
+
+.trashy > img {
+  height: 150px;
+  width: 150px;
+}
