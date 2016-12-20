@@ -8,7 +8,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.left = left;
   this.setPosition(top, left);
   this.step();
-  window.dancers.push(this);
+  // window.dancers.push(this);
 };
 
 Dancer.prototype.setPosition = function(top, left) {
