@@ -1,28 +1,28 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps, id) {
+
+class BlinkyDancer extends Dancer {
+
+ constructor(top, left, timeBetweenSteps, id) {
   // var blinkyDancer = Dancer(top, left, timeBetweenSteps);
-  Dancer.call(this, top, left, timeBetweenSteps, id);
+    super(top, left, timeBetweenSteps, id);
 
 
 };
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
+//BlinkyDancer.prototype = Object.create(Dancer.prototype);
 
-BlinkyDancer.prototype.constructor = BlinkyDancer;
+//BlinkyDancer.prototype.constructor = BlinkyDancer;
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
   //var oldStep = blinkyDancer.step;
-BlinkyDancer.prototype.oldStep = Dancer.prototype.step;
-BlinkyDancer.prototype.step = function() {
-  
-  this.oldStep();  
-  
-  this.$node.toggle();
-  
 
+step () {
+  super.step();
+  this.$node.toggle();
 };
 
+};
 
 //   blinkyDancer.step = function() {
 //     // call the old version of step at the beginning of any call to this new version of step

@@ -1,28 +1,31 @@
-var SquareDancer = function(top, left, timeBetweenSteps, id) {
+class SquareDancer extends Dancer {
+
+constructor(top, left, timeBetweenSteps, id) {
   // var SquareDancer = Dancer(top, left, timeBetweenSteps);
-  Dancer.call(this, top, left, timeBetweenSteps, id);
+  super(top, left, timeBetweenSteps, id);
   this.$node.removeClass('dancer');
   this.$node.addClass('square');
 
 };
 
-SquareDancer.prototype = Object.create(Dancer.prototype);
-SquareDancer.prototype.constructor = SquareDancer;
+// SquareDancer.prototype = Object.create(Dancer.prototype);
+// SquareDancer.prototype.constructor = SquareDancer;
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
   //var oldStep = SquareDancer.step;
-SquareDancer.prototype.oldStep = Dancer.prototype.step;
-SquareDancer.prototype.step = function() {
-  
-  this.oldStep();
-  // this.$node.addClass('square');  
+step() {
+
+  super.step();
+  // this.$node.addClass('square');
   this.$node.toggleClass('square-toggle');
-  
+
 
 };
 
-SquareDancer.prototype.lineUp = function(top, left) {
-  this.setPosition(this.top, 600);
+lineUp(top, left) {
+  super.setPosition(this.top, 600);
+};
+
 };

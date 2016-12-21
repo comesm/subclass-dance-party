@@ -1,6 +1,14 @@
 $(document).ready(function() {
   window.dancers = [];
-
+  window['BlinkyDancer'] = function() {
+    return new BlinkyDancer(...arguments);
+  }
+  window['SquareDancer'] = function() {
+    return new SquareDancer(...arguments);
+  }
+  window['DrunkDancer'] = function() {
+    return new DrunkDancer(...arguments);
+  }
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -19,13 +27,12 @@ $(document).ready(function() {
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
+    debugger;
     // make a dancer with a random position
-
-    var dancer = new dancerMakerFunction(
+    var dancer = dancerMakerFunction (
       Math.round($('body').height() * Math.random()),
       Math.round($('body').width() * Math.random()),
-      Math.random() * 1000, 
+      Math.random() * 1000,
       window.dancers.length + 1
     );
     $('body').append(dancer.$node);
@@ -61,25 +68,25 @@ $(document).ready(function() {
       if (currDancerObj.id === acc.id) {
         return curr;
       }
-      return currDancerObj.getDistance(acc) < 
+      return currDancerObj.getDistance(acc) <
            currDancerObj.getDistance(curr) ? acc : curr;
-    }); 
-    
+    });
+
     var closestDancer = $('body').find('#' + closestDancerObj.id);
     console.log(closestDancer);
     console.log(closestDancerObj);
     console.log(typeof closestDancerObj.top);
-    currDancer.animate({top: '+=100px', 
+    currDancer.animate({top: '+=100px',
         left: '+=100px'}, 'fast');
-    closestDancer.animate({top: '-=100px',   
+    closestDancer.animate({top: '-=100px',
         left: '-=100px'}, 'fast');
     currDancerObj.top += 100;
     currDancerObj.left += 100;
     closestDancerObj.top -= 100;
     closestDancerObj.left -= 100;
-    // currDancer.animate({top: closestDancerObj.top + 'px', 
+    // currDancer.animate({top: closestDancerObj.top + 'px',
     //     left: closestDancerObj.left + 'px'}, 'fast');
-    // closestDancer.animate({top: currDancerObj.top + 'px',   
+    // closestDancer.animate({top: currDancerObj.top + 'px',
     //     left: currDancerObj.left + 'px'}, 'fast');
 
     // var closestCopy = JSON.parse(JSON.stringify(closestDancer));
@@ -89,8 +96,8 @@ $(document).ready(function() {
     // currDancer.top = closestCopy.top;
     // currDancer.left = closestCopy.top;
 
-    
-    // $(currDancerObj).animate({top: closestDancerObj.top + 'px', 
+
+    // $(currDancerObj).animate({top: closestDancerObj.top + 'px',
     //     left: closestDancerObj.left + 'px'}, 'fast');
 
     // var index = window.dancers.indexOf();
