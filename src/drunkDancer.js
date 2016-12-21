@@ -3,7 +3,10 @@ var DrunkDancer = function(top, left, timeBetweenSteps, id) {
   Dancer.call(this, top, left, timeBetweenSteps, id);
   this.$node.addClass('drunk');
   this.$node.removeClass('dancer');
-  this.$node.prepend('<img src="img/rtx1gzco.jpg" />');
+  // this.$node.prepend('<img src="img/rtx1gzco.jpg" />');
+  // this.$node.append('<img class="mario" src="img/mario.jpg" />');
+  this.$node.append('<img class="mario" src="img/MJMario.gif" />');
+  
 
 
 };

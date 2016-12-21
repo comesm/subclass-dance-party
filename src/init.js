@@ -23,8 +23,8 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      Math.round($('body').height() * Math.random()),
+      Math.round($('body').width() * Math.random()),
       Math.random() * 1000, 
       window.dancers.length + 1
     );
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
   $('body').on('mouseover', '.element', function(event) {
     // debugger;
-    $(this).css({border: '5px solid orange'});
+    $(this).css({border: '10px solid #2FB5F3'});
   });
 
   $('body').on('click', '.element', function(event) {
@@ -51,8 +51,8 @@ $(document).ready(function() {
     var currDancerObj = dancers[currId - 1];
     console.log(currId);
     console.log(currDancerObj);
-    console.log(dancers);
-    console.log(window.dancers);
+    // console.log(dancers);
+    // console.log(window.dancers);
 
     var closestDancerObj = dancers.reduce(function(acc, curr) {
       if (currDancerObj.id === curr.id) {
@@ -67,11 +67,16 @@ $(document).ready(function() {
     
     var closestDancer = $('body').find('#' + closestDancerObj.id);
     console.log(closestDancer);
+    console.log(closestDancerObj);
+    console.log(typeof closestDancerObj.top);
     currDancer.animate({top: '+=100px', 
         left: '+=100px'}, 'fast');
     closestDancer.animate({top: '-=100px',   
         left: '-=100px'}, 'fast');
-
+    currDancerObj.top += 100;
+    currDancerObj.left += 100;
+    closestDancerObj.top -= 100;
+    closestDancerObj.left -= 100;
     // currDancer.animate({top: closestDancerObj.top + 'px', 
     //     left: closestDancerObj.left + 'px'}, 'fast');
     // closestDancer.animate({top: currDancerObj.top + 'px',   
